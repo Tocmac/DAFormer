@@ -4,7 +4,6 @@
 # ---------------------------------------------------------------
 
 #!/bin/bash
-
 TEST_ROOT=$1
 CONFIG_FILE="${TEST_ROOT}/*${TEST_ROOT: -1}.json"
 CHECKPOINT_FILE="${TEST_ROOT}/latest.pth"

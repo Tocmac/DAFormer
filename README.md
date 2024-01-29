@@ -1,5 +1,13 @@
 ## DAFormer: Improving Network Architectures and Training Strategies for Domain-Adaptive Semantic Segmentation
 
+CUDA_VISIBLE_DEVICES=0 python run_experiments.py --config configs/daformer/gta2cs_uda_warm_fdthings_rcs_croppl_a999_daformer_mitb5_s0.py
+
+CUDA_VISIBLE_DEVICES=1 nohup python run_experiments.py --config configs/daformer/gta2cs_uda_warm_fdthings_rcs_croppl_a999_daformer_mitb5_s0.py > /data/home/wangxu/code/DAFormer/work_dirs/local-basic/output/daformer_4.txt 2>&1 &
+
+sh test.sh work_dirs/211108_1622_gta2cs_daformer_s0_7f24c
+
+python -m tools.test path/to/config_file path/to/checkpoint_file --test-set --format-only --eval-option imgfile_prefix=labelTrainIds to_label_id=False
+
 **by [Lukas Hoyer](https://lhoyer.github.io/), [Dengxin Dai](https://vas.mpi-inf.mpg.de/dengxin/), and [Luc Van Gool](https://scholar.google.de/citations?user=TwMib_QAAAAJ&hl=en)**
 
 **[[CVPR22 Paper]](https://arxiv.org/pdf/2111.14887.pdf)**
@@ -234,6 +242,9 @@ train IDs and to generate the class index for RCS:
 python tools/convert_datasets/gta.py data/gta --nproc 8
 python tools/convert_datasets/cityscapes.py data/cityscapes --nproc 8
 python tools/convert_datasets/synthia.py data/synthia/ --nproc 8
+
+python tools/convert_datasets/gta.py /data/home/wangxu/datasets/GTA/ --nproc 8
+python tools/convert_datasets/cityscapes.py /data/home/wangxu/datasets/cityscapes/ --nproc 8
 ```
 
 ## Training

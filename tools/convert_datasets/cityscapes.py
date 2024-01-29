@@ -38,7 +38,7 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description='Convert Cityscapes annotations to TrainIds')
     parser.add_argument('cityscapes_path', help='cityscapes data path')
-    parser.add_argument('--gt-dir', default='gtFine', type=str)
+    parser.add_argument('--gt-dir', default='gtFine_trainvaltest/gtFine', type=str)
     parser.add_argument('-o', '--out-dir', help='output path')
     parser.add_argument(
         '--nproc', default=1, type=int, help='number of process')
